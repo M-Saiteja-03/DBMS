@@ -1,0 +1,9 @@
+////using rowcount
+@ @
+SQL> @ rowc;
+Enter value for n: 10
+old   2:        dno dept.deptno%type:=&n;
+new   2:        dno dept.deptno%type:=10;
+3no of rows updated
+
+PL/SQL procedure successfully completed.

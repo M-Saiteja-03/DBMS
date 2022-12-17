@@ -1,0 +1,33 @@
+  declare
+r number(3):=0;
+i number(3):=2;
+n number(3);
+j number(3):=0;
+begin
+for n in 1..10
+loop
+while i<=n
+loop
+r:=n mod i;
+if r=0 then
+exit;
+end if;
+i:=i+1;
+end loop;
+ 
+if n=i then 
+dbms_output.put_line(n);
+i:=2;
+end if;
+end loop;
+end;
+/
+o/p
+
+SQL> @ pri;
+2
+3
+5
+7
+
+PL/SQL procedure successfully completed.

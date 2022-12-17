@@ -1,0 +1,22 @@
+declare
+x number(3):=&no;
+y number(3):=0;
+begin
+  dbms_output.put_line('The given number ='||x);
+  while x>0
+  loop
+  y:=(y*10)+x mod 10;
+  x:=trunc(x/10);
+  end loop;
+ dbms_output.put_line('Reverse ='||y);
+  end;
+/
+o/p
+SQL> @ reverse;
+Enter value for no: 123
+old   2: x number(3):=&no;
+new   2: x number(3):=123;
+The given number =123
+Reverse =321
+
+PL/SQL procedure successfully completed.

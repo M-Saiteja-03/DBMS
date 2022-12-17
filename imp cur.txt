@@ -1,0 +1,21 @@
+////using rowcount
+declare 
+	dno dept.deptno%type:=&n;
+begin
+	update emp
+ 	set sal=sal+100
+	where deptno=dno;
+	if SQL%FOUND then
+dbms_output.put_line(SQL%ROWCOUNT||'no of rows updated');
+else
+dbms_output.put_line('dept i snot found');
+end if;
+end;
+/
+SQL> @ rowc;
+Enter value for n: 10
+old   2:        dno dept.deptno%type:=&n;
+new   2:        dno dept.deptno%type:=10;
+3no of rows updated
+
+PL/SQL procedure successfully completed.

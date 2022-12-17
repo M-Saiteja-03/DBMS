@@ -1,0 +1,14 @@
+/////////// dont allow week end trans  
+ create or replace trigger weekend
+ before insert or update or delete on emp
+ for each row
+ when (to_char(sysdate,'dy') in('sat','wed'))
+ declare
+ e exception;
+ begin
+ raise e;
+ exception
+ when e then
+ raise_application_error(-20003,'transactions are not possible on weekends');
+ end;
+ /

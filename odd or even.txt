@@ -1,0 +1,26 @@
+declare 
+n number(3):=&n;
+begin
+if n mod 2=0 then 
+dbms_output.put_line(n||'is an even number');
+else
+dbms_output.put_line(n||'is an odd number');
+end if;
+end;
+/
+o/p
+SQL> @ oddeven;
+Enter value for n: 4
+old   2: n number(3):=&n;
+new   2: n number(3):=4;
+4is an even number
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for n: 5
+old   2: n number(3):=&n;
+new   2: n number(3):=5;
+5is an odd number
+
+PL/SQL procedure successfully completed.

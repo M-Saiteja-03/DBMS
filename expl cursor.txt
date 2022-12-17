@@ -1,0 +1,65 @@
+6.    WAP to demonstrate an explicit cursor with the attributes found          and isopen
+declare
+cursor e is select * from emp12
+order by empno;
+erec e%rowtype;
+begin
+open e;
+loop
+fetch e into erec;
+exit when e%notfound;
+if e%isopen then
+dbms_output.put_line('is open');
+end if;
+
+update emp12
+set sal=erec.sal+100
+where empno=erec.empno;
+
+dbms_output.put_line('empno----'||erec.empno
+                      ||'      salary-----'||erec.sal
+                     ||'       ename------'||erec.ename);
+end loop;
+close e;
+dbms_output.put_line('sal is increased by 100');
+if e%isopen then
+dbms_output.put_line('is open');
+else
+dbms_output.put_line('is not  open');
+end if;
+end;
+/
+o/p
+SQL> @ cur;
+is open
+empno----7369      salary-----1700       ename------SMITH
+is open
+empno----7499      salary-----2500       ename------ALLEN
+is open
+empno----7521      salary-----2150       ename------WARD
+is open
+empno----7566      salary-----3875       ename------JONES
+is open
+empno----7654      salary-----2150       ename------MARTIN
+is open
+empno----7698      salary-----3750       ename------BLAKE
+is open
+empno----7782      salary-----3350       ename------CLARK
+is open
+empno----7788      salary-----3900       ename------SCOTT
+is open
+empno----7839      salary-----5900       ename------KING
+is open
+empno----7844      salary-----2400       ename------TURNER
+is open
+empno----7876      salary-----2000       ename------ADAMS
+is open
+empno----7900      salary-----1850       ename------JAMES
+is open
+empno----7902      salary-----3900       ename------FORD
+is open
+empno----7934      salary-----2200       ename------MILLER
+sal is increased by 100
+is not  open
+
+PL/SQL procedure successfully completed.

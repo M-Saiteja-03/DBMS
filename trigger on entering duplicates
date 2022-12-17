@@ -1,0 +1,17 @@
+create or replace trigger T5 before insert on emp for each row
+declare
+cursor c5 is select empno from emp;
+e3 exception;
+begin
+for i in c5
+loop
+if(:new.empno=i.empno) then
+raise e3;
+end if;
+end loop;
+exception
+when e3 then
+dbms_output.put_line('You cannot Insert!');
+end;
+/
+show errors

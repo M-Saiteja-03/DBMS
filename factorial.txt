@@ -1,0 +1,51 @@
+declare
+j number(9);
+i number(9);
+fact number(9);
+begin
+fact:=1;
+for i in 1..10
+loop
+for j in 1..i
+loop
+fact:=fact*j;
+end loop;
+dbms_output.put_line('The factorial of '||i||' is'||fact);
+insert into fact1
+values(i,fact);
+fact:=1;
+end loop;
+end;
+/
+out put
+SQL> @  fact;
+The factorial of 1 is1
+The factorial of 2 is2
+The factorial of 3 is6
+The factorial of 4 is24
+The factorial of 5 is120
+The factorial of 6 is720
+The factorial of 7 is5040
+The factorial of 8 is40320
+The factorial of 9 is362880
+The factorial of 10 is3628800
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from fact1;
+
+         N          F
+---------- ----------
+                    1
+         1          1
+         2          2
+         3          6
+         4         24
+         5        120
+         6        720
+         7       5040
+         8      40320
+         9     362880
+        10    3628800
+
+11 rows selected.

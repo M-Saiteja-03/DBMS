@@ -1,0 +1,5 @@
+create table emp1 as select * from emp where deptno=50;
+create or replace trigger backup after insert on emp for each row
+begin
+insert into emp1 values(:new.empno, :new.ename, :new.job, :new.mgr, :new.hiredate, :new.sal, :new.comm, :new.deptno);
+end;

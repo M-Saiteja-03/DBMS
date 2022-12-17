@@ -1,0 +1,12 @@
+///////////check sal>comm
+create or replace trigger chksal
+before insert on emp
+for each row
+begin
+if inserting then
+if :new.sal<:new.comm then
+raise_application_error(-20045,'Salary should not be greater than commission');
+end if;
+end if;
+end;
+/

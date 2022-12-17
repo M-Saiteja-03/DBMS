@@ -1,0 +1,11 @@
+/////////creating backup table for emp.
+SQL> 
+
+  1  create or replace trigger backup after insert on emp for each row
+  2  begin
+  3  insert into emp15
+  4  values(:new.empno, :new.ename, :new.job, :new.mgr, :new.hiredate, :new.sal, :new.comm,          :new.dep
+  5* end;
+SQL> /
+
+Trigger created.

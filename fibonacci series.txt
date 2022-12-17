@@ -1,0 +1,41 @@
+declare
+n number(10):=0;
+n1 number(10):=0;
+n2 number(10):=1;
+i number(4);
+begin
+dbms_output.put_line(n1);
+dbms_output.put_line(n2);
+for i in 1..20
+loop
+n:=n1+n2;
+if n>1000 then
+exit;
+end if;
+dbms_output.put_line(n);
+n1:=n2;
+n2:=n;
+end loop;
+end;
+/
+o/p
+SQL> @ fibo;
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+
+PL/SQL procedure successfully completed.
